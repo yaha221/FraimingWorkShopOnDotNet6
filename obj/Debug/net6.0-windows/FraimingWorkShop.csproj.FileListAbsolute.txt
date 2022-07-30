@@ -1,0 +1,8 @@
+C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\obj\Debug\net6.0-windows\FraimingWorkShop.csproj.AssemblyReference.cache
+C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\obj\Debug\net6.0-windows\Views\Windows\AddFrameWindow.g.cs
+C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\obj\Debug\net6.0-windows\Views\Windows\FrameWindow.g.cs
+C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\obj\Debug\net6.0-windows\Views\Windows\MainWindow.g.cs
+C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\obj\Debug\net6.0-windows\FraimingWorkShop_MarkupCompile.cache
+C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\obj\Debug\net6.0-windows\FraimingWorkShop_MarkupCompile.lref
+C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\obj\Debug\net6.0-windows\FraimingWorkShop_Content.g.cs
