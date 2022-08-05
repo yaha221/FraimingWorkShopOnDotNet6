@@ -1,7 +1,7 @@
 ﻿using System;
-using FramingWorkshop.Controller.Commands.Base;
+using FraimingWorkShop.Infrastructure.Commands.Base;
 
-namespace FramingWorkshop.Controller
+namespace FraimingWorkShop.Infrastructure.Commands
 {
     /// <summary> Класс реализующий интерфейс Command </summary>
     internal class LambdaCommand : Command

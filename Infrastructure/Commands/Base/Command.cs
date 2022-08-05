@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace FramingWorkshop.Controller.Commands.Base
+namespace FraimingWorkShop.Infrastructure.Commands.Base
 {
     internal abstract class Command : ICommand
     {
