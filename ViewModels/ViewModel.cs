@@ -2,10 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
 
-namespace FramingWorkshop.Controller
+namespace FraimingWorkShop.ViewModels
 {
     /// <summary> Класс реализующий интерфейс INotifyPropertyChanged </summary>
-    internal abstract class ViewModel:INotifyPropertyChanged
+    public abstract class ViewModel:INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

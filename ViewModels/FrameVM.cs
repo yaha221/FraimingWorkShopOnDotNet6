@@ -1,14 +1,14 @@
 ﻿using System;
-using FramingWorkshop.Models;
-using FramingWorkshop.Controller;
-using FramingWorkshop.View;
+using FraimingWorkShop.Models;
+using FraimingWorkShop.Infrastructure.Commands;
+using FraimingWorkShop.Views.Windows;
 using System.Collections.Generic;
 using System.ComponentModel;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
-namespace FramingWorkshop
+namespace FraimingWorkShop.ViewModels
 {
     internal class FrameVM : ViewModel
     {
@@ -26,7 +26,7 @@ namespace FramingWorkshop
 
         #region Загрузка сущности "Багет" из БД
 
-        private readonly FramingWorkshopContext db;
+        private readonly FraimingWorkShopContext db;
         public FrameVM()
         {
             AddFrameCommand = new LambdaCommand(OnAddFrameCommandexecuted, CanAddFrameCommandExecuted);
@@ -54,74 +54,74 @@ namespace FramingWorkshop
         }
         #endregion
 
-        #region Команда редактирования багета
+        //#region Команда редактирования багета
 
-        public ICommand EditFrameCommand { get; }
+        //public ICommand EditFrameCommand { get; }
 
-        private bool CanEditFrameCommandExecuted(object p) => true;
+        //private bool CanEditFrameCommandExecuted(object p) => true;
 
-        private void OnEditFrameCommandExecuted(object p)
-        {
-
-            if (selectedItem == null) return;
-            Frame frame = selectedItem as Frame;
-            Frame fr = new Frame()
-            {
-                Id = frame.Id,
-                Title = frame.Title,
-                Correction = frame.Correction,
-                Price = frame.Price,
-                AmountClip = frame.AmountClip
-            };
-            AddFrameWindow frameWindow = new AddFrameWindow(fr);
-            if (frameWindow.ShowDialog() == true)
-            {
-                frame = db.Frames.Find(frameWindow.Frame.Id);
-                if (frame != null)
-                {
-                    frame.Title = frameWindow.Frame.Title;
-                    frame.Price = frameWindow.Frame.Price;
-                    frame.Correction = frameWindow.Frame.Correction;
-                    frame.AmountClip = frameWindow.Frame.AmountClip;
-                    db.Entry(frame).State = EntityState.Modified;
-                    db.SaveChanges();
-                }
-            }
-        }
-
+        //private void OnEditFrameCommandExecuted(object p)
         //{
-        //    get
+
+        //    if (selectedItem == null) return;
+        //    Frame frame = selectedItem as Frame;
+        //    Frame fr = new Frame()
         //    {
-        //        return editCommand ??
-        //            (editCommand = new RelayCommand((selectedItem) =>
-        //            {if (selectedItem == null) return;
-        //                Frame frame = selectedItem as Frame;
-        //                Frame fr = new Frame()
-        //                {
-        //                    Id = frame.Id,
-        //                    Title = frame.Title,
-        //                    Correction = frame.Correction,
-        //                    Price = frame.Price,
-        //                    AmountClip = frame.AmountClip
-        //                };
-        //                FrameWindow frameWindow = new FrameWindow(fr);
-        //                if(frameWindow.ShowDialog() == true)
-        //                {
-        //                    frame = db.Frames.Find(frameWindow.Frame.Id);
-        //                    if(frame != null)
-        //                    {
-        //                        frame.Title = frameWindow.Frame.Title;
-        //                        frame.Price = frameWindow.Frame.Price;
-        //                        frame.Correction = frameWindow.Frame.Correction;
-        //                        frame.AmountClip = frameWindow.Frame.AmountClip;
-        //                        db.Entry(frame).State = EntityState.Modified;
-        //                        db.SaveChanges();
-        //                    }
-        //                }
-        //            }));
+        //        Id = frame.Id,
+        //        Title = frame.Title,
+        //        Correction = frame.Correction,
+        //        Price = frame.Price,
+        //        AmountClip = frame.AmountClip
+        //    };
+        //    AddFrameWindow frameWindow = new AddFrameWindow(fr);
+        //    if (frameWindow.ShowDialog() == true)
+        //    {
+        //        frame = db.Frames.Find(frameWindow.Frame.Id);
+        //        if (frame != null)
+        //        {
+        //            frame.Title = frameWindow.Frame.Title;
+        //            frame.Price = frameWindow.Frame.Price;
+        //            frame.Correction = frameWindow.Frame.Correction;
+        //            frame.AmountClip = frameWindow.Frame.AmountClip;
+        //            db.Entry(frame).State = EntityState.Modified;
+        //            db.SaveChanges();
+        //        }
         //    }
         //}
-        #endregion
+
+        ////{
+        ////    get
+        ////    {
+        ////        return editCommand ??
+        ////            (editCommand = new RelayCommand((selectedItem) =>
+        ////            {if (selectedItem == null) return;
+        ////                Frame frame = selectedItem as Frame;
+        ////                Frame fr = new Frame()
+        ////                {
+        ////                    Id = frame.Id,
+        ////                    Title = frame.Title,
+        ////                    Correction = frame.Correction,
+        ////                    Price = frame.Price,
+        ////                    AmountClip = frame.AmountClip
+        ////                };
+        ////                FrameWindow frameWindow = new FrameWindow(fr);
+        ////                if(frameWindow.ShowDialog() == true)
+        ////                {
+        ////                    frame = db.Frames.Find(frameWindow.Frame.Id);
+        ////                    if(frame != null)
+        ////                    {
+        ////                        frame.Title = frameWindow.Frame.Title;
+        ////                        frame.Price = frameWindow.Frame.Price;
+        ////                        frame.Correction = frameWindow.Frame.Correction;
+        ////                        frame.AmountClip = frameWindow.Frame.AmountClip;
+        ////                        db.Entry(frame).State = EntityState.Modified;
+        ////                        db.SaveChanges();
+        ////                    }
+        ////                }
+        ////            }));
+        ////    }
+        ////}
+        //#endregion
 
         //#region Команда удаления багета из БД
 

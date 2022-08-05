@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
+using FraimingWorkShop.Views.Windows;
 
-namespace FramingWorkshop.Controller
+namespace FraimingWorkShop.ViewModels
 {
     internal class AddFrameVM : ViewModel
     {
