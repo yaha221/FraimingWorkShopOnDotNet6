@@ -1,8 +1,9 @@
 ﻿using System;
+using FraimingWorkShop.ViewModels;
 using System.Windows;
 
 
-namespace FramingWorkshop.View
+namespace FraimingWorkShop.Views.Windows
 {
     /// <summary>
     /// Логика взаимодействия для FrameWindow.xaml

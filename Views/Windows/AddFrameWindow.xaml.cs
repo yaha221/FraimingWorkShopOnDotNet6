@@ -1,7 +1,8 @@
-﻿using FramingWorkshop.Controller;
+﻿using FraimingWorkShop.ViewModels;
+using FraimingWorkShop.Models;
 using System.Windows;
 
-namespace FramingWorkshop.View
+namespace FraimingWorkShop.Views.Windows
 {
     /// <summary>
     /// Логика взаимодействия для AddFrameWindow.xaml
