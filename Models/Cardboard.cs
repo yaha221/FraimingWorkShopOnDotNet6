@@ -1,17 +1,17 @@
-﻿using FramingWorkshop.Controller;
+﻿using FraimingWorkShop.ViewModels;
 
-namespace FramingWorkshop.Models
+namespace FraimingWorkShop.Models
 {
     // Сущность "Картон"
-    internal class Cardboard:ViewModel
+    public class Cardboard:ViewModel
     {
-        internal int Id { get; set; }
+        public int Id { get; set; }
 
         #region Толщина багета
 
         private float dense;
         /// <summary> Толщина картона </summary>
-        internal float Dense
+        public float Dense
         {
             get { return dense; }
             set => Set(ref dense, value);
@@ -23,7 +23,7 @@ namespace FramingWorkshop.Models
 
         private float price;
         /// <summary> Цена картона </summary>
-        internal float Price
+        public float Price
         {
             get { return price; }
             set => Set(ref price, value);

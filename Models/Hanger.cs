@@ -1,18 +1,18 @@
-﻿using FramingWorkshop.Controller;
+﻿using FraimingWorkShop.ViewModels;
 
-namespace FramingWorkshop.Models
+namespace FraimingWorkShop.Models
 {
     // Сущность "Подвесы"
-    internal class Hanger :ViewModel
+    public class Hanger :ViewModel
     {
 
-        internal int Id { get; set; }
+        public int Id { get; set; }
 
         #region Название подвеса
 
         private string title;
         /// <summary>Название подвеса</summary>
-        internal string Title
+        public string Title
         {
             get { return title; }
             set => Set(ref title, value);
@@ -23,7 +23,7 @@ namespace FramingWorkshop.Models
 
         private float price;
         /// <summary>Цена подвеса</summary>
-        internal float Price
+        public float Price
         {
             get { return price; }
             set => Set(ref price, value);
@@ -34,7 +34,7 @@ namespace FramingWorkshop.Models
 
         private int screws;
         /// <summary>Кол-во шурупов на подвес</summary>
-        internal int Screws
+        public int Screws
         {
             get { return screws; }
             set => Set(ref screws, value);

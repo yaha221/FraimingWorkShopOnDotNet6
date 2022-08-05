@@ -1,9 +1,9 @@
-﻿using FramingWorkshop.Controller;
+﻿using FraimingWorkShop.ViewModels;
 
-namespace FramingWorkshop.Models
+namespace FraimingWorkShop.Models
 {
     // Сущность "Переферия" (стекло,лепестки,скобы)
-    internal class Periphery : ViewModel
+    public class Periphery : ViewModel
     {
 
         public int Id { get; set; }

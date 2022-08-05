@@ -1,18 +1,18 @@
-﻿using FramingWorkshop.Controller;
+﻿using FraimingWorkShop.ViewModels;
 
-namespace FramingWorkshop
+namespace FraimingWorkShop.Models
 {
     // Сущность "Багет"
-    internal class Frame : ViewModel
+    public class Frame : ViewModel
     {
 
-        internal int Id { get; set; }
+        public int Id { get; set; }
 
         #region Название багета
 
         private string? title;
         /// <summary> Название багета </summary>
-        internal string Title
+        public string Title
         {
             get => title;
             set => Set(ref title, value);
@@ -24,7 +24,7 @@ namespace FramingWorkshop
 
         private float correction;
         /// <summary> Отступ багета </summary>
-        internal float Correction
+        public float Correction
         {
             get { return correction; }
             set => Set(ref correction, value);      
@@ -35,7 +35,7 @@ namespace FramingWorkshop
 
         private float price;
         /// <summary>Цена багета</summary>
-        internal float Price
+        public float Price
         {
             get { return price; }
             set => Set(ref price, value);
@@ -47,7 +47,7 @@ namespace FramingWorkshop
 
         private int amountClip;
         /// <summary>Кол-во скоб на угол скрепления</summary>
-        internal int AmountClip
+        public int AmountClip
         {
             get { return amountClip; }
             set => Set(ref amountClip, value);
