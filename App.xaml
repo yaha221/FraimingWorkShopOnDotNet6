@@ -1,7 +1,7 @@
 ﻿<Application x:Class="FraimingWorkShop.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:FraimingWorkShop"
+             xmlns:l="clr-namespace:FraimingWorkShop"
              StartupUri="Views/Windows/MainWindow.xaml">
     <Application.Resources>
          
