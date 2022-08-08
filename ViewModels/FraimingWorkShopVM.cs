@@ -1,10 +1,13 @@
-﻿using FraimingWorkShop.Models;
+﻿using System;
+using FraimingWorkShop.Models;
 using FraimingWorkShop.Infrastructure.Commands;
 using FraimingWorkShop.Views.Windows;
 using Microsoft.EntityFrameworkCore;
 using System.Collections;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows;
 
 namespace FraimingWorkShop.ViewModels
 {
@@ -22,41 +25,35 @@ namespace FraimingWorkShop.ViewModels
         public ICommand DataViewCommand { get; }
 
         private static bool CanDataViewCommandExecuted(object p) => true;
-        //{
-        //    if (FrameList)
-        //    {
-        //        return true;
-        //    }
-        //}
 
         private void OnDataViewCommandExecuted(object p)
         {
-            if (((MainWindow)System.Windows.Application.Current.MainWindow).Frame.IsSelected)
+            if (FrameIsSelected)
             {
               db.Frames.Load();   
               Frames = db.Frames.Local.ToObservableCollection();
-              ((MainWindow)System.Windows.Application.Current.MainWindow).PriceDataGrid.ItemsSource = Frames;
+              PriceData = Frames;
 
             }
-            else if (((MainWindow)System.Windows.Application.Current.MainWindow).Cardboard.IsSelected)
+            else if (CardboardIsSelected)
             {
                 db.Cardboards.Load();
                 Cardboards = db.Cardboards.Local.ToObservableCollection();
-                ((MainWindow)System.Windows.Application.Current.MainWindow).PriceDataGrid.ItemsSource = Cardboards;
+                PriceData = Cardboards;
 
             }
-            else if (((MainWindow)System.Windows.Application.Current.MainWindow).Hanger.IsSelected)
+            else if (HangerIsSelected)
             {
                 db.Hangers.Load();
                 Hangers = db.Hangers.Local.ToObservableCollection();
-                ((MainWindow)System.Windows.Application.Current.MainWindow).PriceDataGrid.ItemsSource = Hangers;
+                PriceData = Hangers;
 
             }
-            else if (((MainWindow)System.Windows.Application.Current.MainWindow).Periphery.IsSelected)
+            else if (PeripheryIsSelected)
             {
                 db.Peripheries.Load();
                 Peripheries = db.Peripheries.Local.ToObservableCollection();
-                ((MainWindow)System.Windows.Application.Current.MainWindow).PriceDataGrid.ItemsSource = Peripheries;
+                PriceData = Peripheries;
 
             }
         }
@@ -74,23 +71,114 @@ namespace FraimingWorkShop.ViewModels
         }
         #endregion
 
+        #region Команда поиска нужного элеемента в БД
+
+        public ICommand DataFindCommand { get; }
+
+        private static bool CanDataFindCommandExecuted(object p) => true;
+
+        private void OnDataFindCommandExecuted(object p)
+        {
+            if (FrameIsSelected)
+            {
+                var filtred = Frames.Where(Frames => Frames.Title.StartsWith(FindItemOnPrice));
+                PriceData = filtred;
+            }
+            else if (CardboardIsSelected)
+            {
+                db.Cardboards.Find(FindItemOnPrice);
+            }
+            else if (HangerIsSelected)
+            {
+                db.Hangers.Find(FindItemOnPrice);
+            }
+            else if (PeripheryIsSelected)
+            {
+                db.Peripheries.Find(FindItemOnPrice);
+            }
+        }
+
+        #endregion
+
         public FraimingWorkShopVM()
         {
             DataViewCommand = new LambdaCommand(OnDataViewCommandExecuted, CanDataViewCommandExecuted);
             DataSaveCommand = new LambdaCommand(OnDataSaveCommandExecuted, CanDataSaveCommandExecuted);
-
+            DataFindCommand = new LambdaCommand(OnDataFindCommandExecuted, CanDataFindCommandExecuted);
         }
 
-        #region ListStatus - определяет выбран объект листа или нет
+        #region Свойства
 
-        private bool _liststatus;
+        #region FindItemOnPrice - Свойство поиска данных в таблицах
 
-        public bool ListStatus
+        private string _findItemOnPrice;
+
+        public string FindItemOnPrice
         {
-            get => _liststatus;
-            set => Set(ref _liststatus, value);
+            get => _findItemOnPrice;
+            set => Set(ref _findItemOnPrice, value);
+        }
+
+        #endregion
+
+        #region PriceData - Свойство для передачи данных в DataGrid;
+        private IEnumerable _priceData;
+
+        public IEnumerable PriceData
+        {
+            get=> _priceData;
+            set => Set(ref _priceData, value);
         }
         #endregion
+
+        #region PeripheryIsSelected - Свойство для проверки выбора элемента списка;
+        private bool _peripheryIsSelected;
+
+        public bool PeripheryIsSelected
+        {
+            get=> _peripheryIsSelected;
+            set => Set(ref _peripheryIsSelected, value);
+        }
+        #endregion
+
+        #region HangerIsSelected - Свойство для проверки выбора элемента списка;
+        private bool _hangerIsSelected;
+
+        public bool HangerIsSelected
+        {
+            get => _hangerIsSelected;
+            set => Set(ref _hangerIsSelected, value);
+        }
+        #endregion
+
+        #region CardboardIsSelected - Свойство для проверки выбора элемента списка;
+        private bool _cardboardIsSelected;
+
+        public bool CardboardIsSelected
+        {
+            get=> _cardboardIsSelected;
+            set => Set(ref _cardboardIsSelected, value);
+        }
+        #endregion
+
+        #region FrameIsSelected - Свойство для проверки выбора элемента списка;
+        private bool _frameIsSelected;
+
+        public bool FrameIsSelected
+        {
+            get => _frameIsSelected;
+            set => Set(ref _frameIsSelected, value);
+        }
+        #endregion
+
+
+        private Visibility _groupboxVisibility;
+
+        public Visibility GroupBoxVisibility
+        {
+            get => _groupboxVisibility;
+            set => Set(ref _groupboxVisibility, value);
+        }
 
         #region Status - логика отображения статуса события;
         
@@ -101,6 +189,7 @@ namespace FraimingWorkShop.ViewModels
             get => _status;
             set => Set(ref _status, value);
         }
+        #endregion
         #endregion
     }
 }
