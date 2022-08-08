@@ -35,11 +35,15 @@
                         <RowDefinition Height="3*"/>
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="0" x:Name="FrameGrid">
-                        <CheckBox x:Name="FrameGridUsed" IsChecked="True"></CheckBox>
+                    <Grid Grid.Row="0" x:Name="FrameGrid" >
+                        <CheckBox x:Name="FrameGridUsed" ></CheckBox>
                     </Grid>
-                    <Grid Grid.Row="1" x:Name="GlassGrid"></Grid>
-                    <Grid Grid.Row="2" x:Name="CardboardGrid"></Grid>
+                    <Grid Grid.Row="1" x:Name="GlassGrid">
+                        <CheckBox x:Name="GlassGridUsed" IsChecked="False"></CheckBox>
+                    </Grid>
+                    <Grid Grid.Row="2" x:Name="CardboardGrid">
+                        <CheckBox x:Name="CardboardGridUsed" IsChecked="False"></CheckBox>
+                    </Grid>
                     <Grid Grid.Row="3" x:Name="ResultGrid"></Grid>
                 </Grid>
             </TabItem>
@@ -51,10 +55,10 @@
                     </Grid.ColumnDefinitions>
                     <GroupBox Header="Таблицы" Grid.Column="0">
                         <ListBox x:Name="TableList">
-                            <ListBoxItem x:Name="Frame" >Багет</ListBoxItem>
-                            <ListBoxItem x:Name="Cardboard">Картон</ListBoxItem>
-                            <ListBoxItem x:Name="Hanger">Подвесы</ListBoxItem>
-                            <ListBoxItem x:Name="Periphery">Остальное</ListBoxItem>
+                            <ListBoxItem x:Name="Frame" IsSelected="{Binding FrameIsSelected}" >Багет</ListBoxItem>
+                            <ListBoxItem x:Name="Cardboard" IsSelected="{Binding CardboardIsSelected}">Картон</ListBoxItem>
+                            <ListBoxItem x:Name="Hanger" IsSelected="{Binding HangerIsSelected}">Подвесы</ListBoxItem>
+                            <ListBoxItem x:Name="Periphery" IsSelected="{Binding PeripheryIsSelected}">Остальное</ListBoxItem>
                         </ListBox>
                     </GroupBox>
                     <Grid Grid.Column="1">
@@ -62,13 +66,17 @@
                             <RowDefinition Height="8*"/>
                             <RowDefinition Height="2*"/>
                         </Grid.RowDefinitions>
-                        <DataGrid Grid.Row="0" x:Name="PriceDataGrid" ></DataGrid>
+                        <DataGrid Grid.Row="0" x:Name="PriceDataGrid" 
+                                  ItemsSource="{Binding PriceData}" ></DataGrid>
                         <Grid Grid.Row="1">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20*"/>
                                 <RowDefinition Height="20*"/>
                                 <RowDefinition Height="14*"/>
                             </Grid.RowDefinitions>
+                            <Grid Row="0">
+                                <TextBox Name="SearchBox" Text="{Binding FindItemOnPrice}" BorderBrush="Black" BorderThickness="1"/>
+                            </Grid>
                             <Grid Row="2">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="2*"/>
@@ -77,7 +85,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Button Grid.Column="0" Command="{Binding DataViewCommand}">Показать</Button>
                                 <Button Grid.Column="1" Command="{Binding DataSaveCommand}">Сохранить</Button>
-                                <Button Grid.Column="2">Найти</Button>
+                                <Button Grid.Column="2" Command="{Binding DataFindCommand}">Найти</Button>
                             </Grid>
                         </Grid>
                     </Grid>
