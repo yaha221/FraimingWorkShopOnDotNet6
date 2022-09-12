@@ -1,6 +1,4 @@
 C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\obj\Debug\net6.0-windows\FraimingWorkShop.csproj.AssemblyReference.cache
-C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\obj\Debug\net6.0-windows\Views\Windows\AddFrameWindow.g.cs
-C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\obj\Debug\net6.0-windows\Views\Windows\FrameWindow.g.cs
 C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\obj\Debug\net6.0-windows\Views\Windows\MainWindow.g.cs
 C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\obj\Debug\net6.0-windows\FraimingWorkShop_MarkupCompile.cache
@@ -44,8 +42,6 @@ C:\Users\Программист Тоша\Desktop\Папки\Проверка з�
 C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\bin\Debug\net6.0-windows\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\bin\Debug\net6.0-windows\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\bin\Debug\net6.0-windows\runtimes\win-x86\native\e_sqlite3.dll
-C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\obj\Debug\net6.0-windows\Views\Windows\AddFrameWindow.baml
-C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\obj\Debug\net6.0-windows\Views\Windows\FrameWindow.baml
 C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\obj\Debug\net6.0-windows\Views\Windows\MainWindow.baml
 C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\obj\Debug\net6.0-windows\FraimingWorkShop.g.resources
 C:\Users\Программист Тоша\Desktop\Папки\Проверка знаний\FraimingWorkShop\obj\Debug\net6.0-windows\FraimingWorkShop.GeneratedMSBuildEditorConfig.editorconfig

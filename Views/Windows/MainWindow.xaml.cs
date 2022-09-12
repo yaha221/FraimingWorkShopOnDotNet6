@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using FraimingWorkShop.ViewModels;
 
 namespace FraimingWorkShop.Views.Windows 
@@ -14,5 +15,6 @@ namespace FraimingWorkShop.Views.Windows
             DataContext = new FraimingWorkShopVM();
             
         }
+
     }
 }

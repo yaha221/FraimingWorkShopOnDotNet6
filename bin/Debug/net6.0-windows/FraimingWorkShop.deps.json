@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "FraimingWorkShop/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.7",
           "Microsoft.EntityFrameworkCore.Sqlite": "6.0.7"
         },
         "runtime": {
